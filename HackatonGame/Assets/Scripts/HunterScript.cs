@@ -5,7 +5,8 @@ using UnityEngine;
 public class HunterScript : MonoBehaviour {
 
     public Transform rhino;
-
+    public Transform catcher;
+    private Transform center;
 
     public float speed = 2.5f;
 
@@ -20,6 +21,8 @@ public class HunterScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rhino = GameObject.Find("rhino").transform;
+        catcher = this.transform.Find("catcher");
+        center = GameObject.Find("center").transform;
         Vector3 size = rhino.GetComponent<BoxCollider2D>().size;
         float x = Mathf.Sign(transform.position.x) * 2 * size.x;
         float y = 2*size.y;
@@ -49,6 +52,17 @@ public class HunterScript : MonoBehaviour {
         delta.Normalize();
         float moveSpeed = speed * Time.deltaTime;
         transform.Translate(delta.x*moveSpeed, delta.y*moveSpeed, 0);
+
+        RotateCatcher();
+        
+    }
+
+    void RotateCatcher()
+    {
+        Vector3 dV = transform.position - rhino.position;
+        float angle = Mathf.Atan2(dV.y, dV.x) * Mathf.Rad2Deg * 2 + 45;
+        Quaternion rot = Quaternion.Euler(new Vector3(0, 0, angle));
+        catcher.transform.rotation = rot;
     }
 
     bool IsInContact()
