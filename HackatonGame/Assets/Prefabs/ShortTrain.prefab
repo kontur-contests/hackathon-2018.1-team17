@@ -384,7 +384,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1890120448649464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalPosition: {x: 6.1457615, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4669037086099768}
@@ -503,7 +503,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1436626573425110}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.28, y: 0, z: 0}
+  m_LocalPosition: {x: -50, y: 27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4676491673536800}
@@ -612,7 +612,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1413797257460922}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4652959526589474}
@@ -705,7 +705,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 20235d9039470a241b2556c7a804d841, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 107fb51eeb6de9344a34a405bc7a6c6e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -715,10 +715,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 0
-  MinDistance: 1
-  MaxDistance: 554.87
+  MinDistance: 85
+  MaxDistance: 300
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -726,70 +726,16 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0.001802224
-      value: 1
-      inSlope: -555.09186
-      outSlope: -555.09186
+      time: 0.14182332
+      value: 1.0139236
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.003604448
-      value: 0.5
-      inSlope: -138.77296
-      outSlope: -138.77296
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.010626864
-      value: 0.45674896
-      inSlope: -34.69324
-      outSlope: -34.69324
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.039085675
-      value: 0.39027405
-      inSlope: -2.1683276
-      outSlope: -2.1683276
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.057671167
-      value: 0.3539734
-      inSlope: -0.5420819
-      outSlope: -0.5420819
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.07775994
-      value: 0.3030548
-      inSlope: -0.13552047
-      outSlope: -0.13552047
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.13741317
-      value: 0.17037964
-      inSlope: -8.67331
-      outSlope: -8.67331
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.23068467
-      value: 0.0078125
-      inSlope: -0.03388012
-      outSlope: -0.03388012
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.46136934
-      value: 0.00390625
-      inSlope: -0.00847003
-      outSlope: -0.00847003
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.9227387
-      value: 0.001953125
-      inSlope: -0.0021175074
-      outSlope: -0.0021175074
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 0.001802224
-      inSlope: -0.0018029416
-      outSlope: -0.0018029416
+      time: 0.29244995
+      value: 0
+      inSlope: -1.3953488
+      outSlope: -1.3953488
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -823,7 +769,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0.52
+      value: 0.27
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -839,7 +785,7 @@ Animator:
   m_GameObject: {fileID: 1436626573425110}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 01eafcebcdfcab64389e34327dd8d1ea, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5fd26cd497b2c0746bad89a9bed92a05, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -1,15 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
     public float speed;
     public float rotatespeed;
+	public Button speedUpButton;
+	public Button speedDownButton;
+	public float notError;
     // Use this for initialization
     void Start ()
     {
-		
+		StartCoroutine(ForSpeedUp());
+		StartCoroutine(ForSpeedDown());
 	}
 	
 	// Update is called once per frame
@@ -55,22 +61,36 @@ public class PlayerController : MonoBehaviour {
         }
         transform.Translate(Vector3.up * speed);
     }
-
+	IEnumerator ForSpeedUp()
+	{
+		yield return new WaitForSeconds (10);
+		speedUpButton.enabled = true;
+	}
+	IEnumerator ForSpeedDown()
+	{
+		yield return new WaitForSeconds (10);
+		speedDownButton.enabled = true;
+	}
     public void SpeedUp()
     {
         speed *= 2;
         Invoke("SpeedNormal", 2);
+		speedUpButton.enabled = false;
+		ForSpeedUp ();
+
     }
 
     public void SpeedDown()
     {
         speed /= 2;
         Invoke("SpeedNormal", 2);
+		speedDownButton.enabled = false;
+		ForSpeedDown ();
     }
 
     public void SpeedNormal()
     {
-        speed = 1.01f;
+		speed = notError;
     }
 
     public void LeftRun()
@@ -99,4 +119,7 @@ public class PlayerController : MonoBehaviour {
     {
         GetComponent<Animator>().SetBool("Right", true);
     }
+	public void Exit(){
+			SceneManager.LoadScene ("StartMenu");
+	}
 }
