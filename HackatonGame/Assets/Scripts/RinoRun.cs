@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class RinoRun : MonoBehaviour {
 
-    public float speed;
+    public float speed = 2.0f;
+
+    private bool canRun = true;
 	// Use this for initialization
 	void Start () {
 		
@@ -12,6 +14,14 @@ public class RinoRun : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = transform.position * speed;
+        if(canRun)
+        {
+            transform.Translate(new Vector3(0, 1 * speed, 0));
+        }
 	}
+
+    public void Gotcha()
+    {
+        canRun = false;
+    }
 }

@@ -91,8 +91,8 @@ public class HunterScript : MonoBehaviour {
 
     void Gotcha()
     {
-        RinoScript rhino = this.rhino.GetComponent("RinoScript") as RinoScript;
-        rhino.gotcha();
+        RinoRun rhinoRun = this.rhino.GetComponent("RinoScript") as RinoRun;
+        rhinoRun.Gotcha();
         huntStage = 2;
     }
 }
