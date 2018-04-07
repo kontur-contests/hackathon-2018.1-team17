@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Blur
   - 
   - 
   - 
@@ -40,4 +40,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackLayer
+    uniqueID: 3910745015
+    locked: 0
+  - name: UnVisionLayer
+    uniqueID: 1124428387
+    locked: 0
+  - name: VisionLayer
+    uniqueID: 1214314071
+    locked: 0
+  - name: ObjectsOnVision
+    uniqueID: 485704011
+    locked: 0
+  - name: Front
+    uniqueID: 2974600343
+    locked: 0
+  - name: RinoLayer
+    uniqueID: 1242432195
     locked: 0
