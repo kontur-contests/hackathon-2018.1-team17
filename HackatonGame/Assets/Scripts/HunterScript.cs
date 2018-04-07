@@ -5,6 +5,7 @@ using UnityEngine;
 public class HunterScript : MonoBehaviour {
 
     public Transform rhino;
+    public Transform player;
     public Transform catcher;
     private Transform center;
 
@@ -17,45 +18,51 @@ public class HunterScript : MonoBehaviour {
     public float timeForCatchingRequired = 2;
     private float timeTilCatching = 0;
     private Vector3 target;
+    private Vector3 alternativeTarget = Vector3.zero;
 
     // Use this for initialization
     void Start () {
-        rhino = GameObject.Find("rhino").transform;
+        player = GameObject.Find("player").transform;
+        rhino = player.transform.Find("rhino").transform;
         catcher = this.transform.Find("catcher");
-        center = GameObject.Find("center").transform;
         Vector3 size = rhino.GetComponent<BoxCollider2D>().size;
-        float x = Mathf.Sign(transform.position.x) * 2 * size.x;
-        float y = 2*size.y;
+        float x = Mathf.Sign(transform.position.x) * 4 * size.x;
+        float y = 3f*size.y;
         target = new Vector3(x, y, 0);
         if(x >= 0)
         {
-            catcher.transform.Rotate(0, 0, -90);
+            catcher.transform.Rotate(0, 0, -45);
         } else
         {
-            catcher.transform.Rotate(0, 0, 180);
+            catcher.transform.Rotate(0, 0, 135);
         }
     }
 	
 	// Update is called once per frame
 	void Update () {
-		switch(huntStage)
+       // transform.Rotate(0, 0, transform.rotation.z/2) ;
+        Vector3 rhinoPosition = player.TransformVector(rhino.position);
+        if (alternativeTarget.Equals(Vector3.zero))
         {
-            case 0:
-                {
-                    DecreaseDistancence();
-                    break;
-                }
-            case 1:
-                {
-                    Catching();
-                    break;
-                }
+            DecreaseDistancence(rhinoPosition);
+            if(IsInContact())
+            {
+                StartCatching();
+            }
+        } else
+        {
+            if (Vector3.Distance(rhinoPosition, transform.position) > 2 * distanceRequiredForContact)
+            {
+                alternativeTarget = Vector3.zero;
+                return;
+            }
+            DecreaseDistancence(alternativeTarget);
         }
 	}
 
-    void DecreaseDistancence()
+    void DecreaseDistancence(Vector3 position)
     {
-        Vector3 delta = rhino.position - transform.position + target;
+        Vector3 delta = position - transform.position + target;
         delta.Normalize();
         float moveSpeed = speed * Time.deltaTime;
         transform.Translate(delta.x*moveSpeed, delta.y*moveSpeed, 0);
@@ -74,7 +81,8 @@ public class HunterScript : MonoBehaviour {
 
     bool IsInContact()
     {
-        return Vector3.Distance(transform.position, rhino.transform.position) <= distanceRequiredForContact;
+        Vector3 pos = player.TransformVector(rhino.position + target);
+        return Vector3.Distance(pos, this.transform.position) < distanceRequiredForContact;
     }
 
     void OnCollisionEnter2D(Collision2D theCollision)
@@ -82,21 +90,15 @@ public class HunterScript : MonoBehaviour {
         //Проверяем коллизию с объектом типа «rhino»
         if (theCollision.gameObject.name.Contains("rhino"))
         {
-            switch(huntStage)
-            {
-                case 0:
-                    {
-                        StartCatching();
-                        break;
-                    }
-            }
+            StartCatching();
         }
     }
 
     void StartCatching()
     {
-        huntStage = 1;
-        timeTilCatching = 0;
+        alternativeTarget = new Vector3(5 * Mathf.Sign(transform.position.x), transform.position.y + 2, 0);
+        Shooting shooting = this.catcher.GetComponent("Shooting") as Shooting;
+        shooting.Shoot();
     }
 
     void Catching()
@@ -111,7 +113,7 @@ public class HunterScript : MonoBehaviour {
             huntStage = 0;
             return;
         }
-        DecreaseDistancence();
+        DecreaseDistancence(rhino.transform.position);
         timeTilCatching += Time.deltaTime;
     }
 

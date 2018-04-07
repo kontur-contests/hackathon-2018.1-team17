@@ -11,7 +11,6 @@ public class Shooting : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        InvokeRepeating("Shoot", 1, 3);
     }
 	
 	// Update is called once per frame
@@ -23,6 +22,10 @@ public class Shooting : MonoBehaviour {
     public void Shoot()
     {
         GameObject prefab;
-        prefab = Instantiate(FromGun, this.gameObject.transform.position, Quaternion.identity);
+        prefab = Instantiate(FromGun, this.gameObject.transform.position, this.transform.parent.rotation);
+        GunWeb gunWeb = prefab.GetComponent<GunWeb>();
+        float x = (transform.position.x >= 0) ? -1 : 1;
+        float y = 0f;
+        gunWeb.targetVector = new Vector3(x, y, 0);
     }
 }

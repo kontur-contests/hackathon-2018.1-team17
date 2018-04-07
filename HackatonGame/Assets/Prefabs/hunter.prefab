@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4469200411123864}
   - component: {fileID: 212158392133199074}
+  - component: {fileID: 114669126233523984}
   m_Layer: 0
   m_Name: catcher
   m_TagString: Untagged
@@ -147,6 +148,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.2}
   m_EdgeRadius: 0
+--- !u!114 &114669126233523984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1618544891281414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835ce763b10f292468cbafa566f3a0de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FromGun: {fileID: 1188220803516554, guid: d692c7ebe2a3fac4ba3cb3025bc68b4e, type: 2}
+  Rino: {fileID: 0}
+  target: {fileID: 0}
+  speed: 0
 --- !u!114 &114979827883004760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -159,10 +175,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rhino: {fileID: 0}
+  player: {fileID: 0}
   catcher: {fileID: 4469200411123864}
   speed: 5
-  distanceRequiredForContact: 1.5
-  timeForCatchingRequired: 3
+  distanceRequiredForContact: 6
+  timeForCatchingRequired: 2
 --- !u!212 &212158392133199074
 SpriteRenderer:
   m_ObjectHideFlags: 1

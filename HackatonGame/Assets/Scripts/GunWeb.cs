@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GunWeb : MonoBehaviour {
 
-    Vector3 targetVector;
+    public Vector3 targetVector;
 
     private void Update()
     {
-        transform.position += Vector3.left * 0.1f;
+        transform.position += targetVector * 0.1f;
     }
 }
