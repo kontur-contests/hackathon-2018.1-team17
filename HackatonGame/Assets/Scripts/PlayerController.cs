@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour {
     public void SpeedUp()
     {
         blockFastSpeed = true;
-        speed *= 2;
+        GetComponentInParent<SpeedRinoParent>().speed *= 2;
         Invoke("SpeedNormal", 2);
         Invoke("DisableFastBlock", 5);
     }
@@ -125,14 +125,14 @@ public class PlayerController : MonoBehaviour {
     public void SpeedDown()
     {
         blockSlowSpeed = true;
-        speed /= 2;
+        GetComponentInParent<SpeedRinoParent>().speed /= 2;
         Invoke("SpeedNormal", 2);
         Invoke("DisableSlowBlock", 5);
     }
 
     public void SpeedNormal()
     {
-        speed = 0.04f;
+        GetComponentInParent<SpeedRinoParent>().speed = 0.04f;
     }
 
     public void DisableFastBlock()

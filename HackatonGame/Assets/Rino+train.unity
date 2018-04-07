@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657886, g: 0.4964127, b: 0.57481724, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -275,14 +275,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 508452153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aed96c7557786874b8297779be810197, type: 3}
+  m_Script: {fileID: 11500000, guid: 4571b31713c335c42a3c9afc3813457b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.04
-  rotatespeed: 0
-  speedUpButton: {fileID: 0}
-  speedDownButton: {fileID: 0}
-  notError: 0.04
 --- !u!4 &508452155
 Transform:
   m_ObjectHideFlags: 0
@@ -541,9 +537,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   rotatespeed: 0.04
-  speedUpButton: {fileID: 0}
-  speedDownButton: {fileID: 0}
-  notError: 0
 --- !u!65 &1467469408
 BoxCollider:
   m_ObjectHideFlags: 0
