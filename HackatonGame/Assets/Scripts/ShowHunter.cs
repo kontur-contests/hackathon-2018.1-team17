@@ -8,6 +8,7 @@ public class ShowHunter : MonoBehaviour {
     public Transform enemy;
     public Transform world;
     public Transform rhino;
+    public List<Transform> spawns;
     // Временные промежутки между событиями, кол-во врагов
     public float timeBeforeSpawning = 1.5f;
     public float timeBetweenEnemies = 0.25f;
@@ -40,11 +41,12 @@ public class ShowHunter : MonoBehaviour {
                     randDistance = Random.Range(5, 10);
                     randDirection = Random.Range(0, 360);
                     // Используем переменные для задания координат появления врага
-                    float posX = this.rhino.transform.position.x + (Mathf.Cos((randDirection) * Mathf.Deg2Rad) * randDistance);
-                    float posY = this.rhino.transform.position.y - randDistance;
+                    int index = Random.Range(0, spawns.Count);
+                    Transform spawn = spawns[index];
+                    Vector3 pos = rhino.TransformVector(spawn.position);
                     
                     // Создаём врага на заданных координатах
-                    Instantiate(enemy, new Vector3(posX, posY, 5), this.transform.rotation);
+                    Instantiate(enemy, new Vector3(pos.x, pos.y, 5), this.transform.rotation);
                     currentNumberOfEnemies++;
                     yield return new WaitForSeconds(timeBetweenEnemies);
                 }
