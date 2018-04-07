@@ -15,10 +15,12 @@ public class HunterScript : MonoBehaviour {
 
     private int huntStage = 0; //0 - догнать, 1 - поймать
 
-    public float timeForCatchingRequired = 2;
+    public float timeForCatchingRequired;
     private float timeTilCatching = 0;
     private Vector3 target;
     private Vector3 alternativeTarget = Vector3.zero;
+
+
 
     // Use this for initialization
     void Start () {
@@ -96,7 +98,7 @@ public class HunterScript : MonoBehaviour {
 
     void StartCatching()
     {
-        alternativeTarget = new Vector3(5 * Mathf.Sign(transform.position.x), transform.position.y + 2, 0);
+        alternativeTarget = new Vector3(5 * Mathf.Sign(transform.position.x), transform.position.y - 5, 0);
         Shooting shooting = this.catcher.GetComponent("Shooting") as Shooting;
         shooting.Shoot();
     }
