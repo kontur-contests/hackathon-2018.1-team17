@@ -11,21 +11,18 @@ public class Shooting : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        InvokeRepeating("Shoot", 1, 3);
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        var newRotation = Quaternion.LookRotation(transform.position - target.position, Vector3.forward);
-        newRotation.x = 0.0f;
-        newRotation.y = 0.0f;
-        transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * 8);
+        
     }
 
     public void Shoot()
     {
         GameObject prefab;
-        prefab = Instantiate(FromGun, this.transform);
-        prefab.GetComponent<GunWeb>().Force(Rino.transform.position);
+        prefab = Instantiate(FromGun, this.gameObject.transform.position, Quaternion.identity);
     }
 }

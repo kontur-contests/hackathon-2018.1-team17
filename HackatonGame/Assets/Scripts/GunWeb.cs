@@ -8,11 +8,6 @@ public class GunWeb : MonoBehaviour {
 
     private void Update()
     {
-        Vector3.Lerp(this.transform.position, targetVector, 5);
-    }
-
-    public void Force(Vector3 target)
-    {
-        targetVector = target;
+        transform.position += Vector3.left * 0.1f;
     }
 }
