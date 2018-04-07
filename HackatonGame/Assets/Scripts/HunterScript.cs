@@ -27,6 +27,13 @@ public class HunterScript : MonoBehaviour {
         float x = Mathf.Sign(transform.position.x) * 2 * size.x;
         float y = 2*size.y;
         target = new Vector3(x, y, 0);
+        if(x >= 0)
+        {
+            catcher.transform.Rotate(0, 0, -90);
+        } else
+        {
+            catcher.transform.Rotate(0, 0, 180);
+        }
     }
 	
 	// Update is called once per frame
@@ -53,7 +60,7 @@ public class HunterScript : MonoBehaviour {
         float moveSpeed = speed * Time.deltaTime;
         transform.Translate(delta.x*moveSpeed, delta.y*moveSpeed, 0);
 
-        RotateCatcher();
+        //RotateCatcher();
         
     }
 
