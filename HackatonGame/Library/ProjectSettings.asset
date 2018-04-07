@@ -635,9 +635,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 33fcb84b-a596-47e2-b799-d82d52ed732e
-  projectName: HackatonGame
-  organizationId: luckydimkaa
+  cloudProjectId: e1965ef9-b30a-495d-ae23-bf14099d50be
+  projectName: Waeq
+  organizationId: daniil-3895745
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
