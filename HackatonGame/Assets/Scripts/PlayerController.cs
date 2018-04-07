@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour {
 
     public void SpeedNormal()
     {
-        speed = 1.01f;
+        speed = 0.04f;
     }
 
     public void LeftRun()

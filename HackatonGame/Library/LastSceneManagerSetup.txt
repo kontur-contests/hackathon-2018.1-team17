@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/RinoSpeed.unity
+- path: Assets/InfiniteSavage.unity
   isLoaded: 1
   isActive: 1
