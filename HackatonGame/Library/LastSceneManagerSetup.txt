@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/HackatonGame.unity
+- path: Assets/RinoVision.unity
   isLoaded: 1
   isActive: 1
