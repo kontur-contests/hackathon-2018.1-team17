@@ -6,16 +6,21 @@ public class PlayerController : MonoBehaviour {
 
     public float speed;
     public float rotatespeed;
+    Vector2 firstPressPos;
+    Vector2 secondPressPos;
+    Vector2 currentSwipe;
+    bool blockFastSpeed = false;
+    bool blockSlowSpeed = false;
     // Use this for initialization
     void Start ()
     {
 		
 	}
-	
 	// Update is called once per frame
 	void Update ()
     {
-		if (Input.GetKey(KeyCode.Z))
+#if UNITY_EDITOR
+        if (Input.GetKey(KeyCode.Z))
         {
             transform.Translate(new Vector3(1 * -rotatespeed, 0, 0));
         }
@@ -54,23 +59,90 @@ public class PlayerController : MonoBehaviour {
             SpeedDown();
         }
         transform.Translate(Vector3.up * speed);
+#endif
+#if UNITY_ANDROID
+        if (Input.acceleration.x > 0)
+        {
+            transform.Translate(Input.acceleration.x, 0, 0);
+            RightRun();
+        }
+
+        if (Input.acceleration.x < 0)
+        {
+            transform.Translate(Input.acceleration.x, 0, 0);
+            LeftRun();
+        }
+
+        if (Input.acceleration.x == 0)
+        {
+            StopLeftRun();
+            StopRightRun();
+        }
+
+        if (Input.touches.Length > 0)
+        {
+            Touch t = Input.GetTouch(0);
+            if (t.phase == TouchPhase.Began)
+            {
+                firstPressPos = new Vector2(t.position.x, t.position.y);
+            }
+
+            if (t.phase == TouchPhase.Ended)
+            {
+                //save ended touch 2d point
+                secondPressPos = new Vector2(t.position.x, t.position.y);
+
+                //create vector from the two points
+                currentSwipe = new Vector3(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
+
+                //normalize the 2d vector
+                currentSwipe.Normalize();
+
+                //swipe upwards
+                if (currentSwipe.y > 0 && !blockFastSpeed)
+                {
+                    SpeedUp();
+                }
+                //swipe down
+                if (currentSwipe.y < 0 && !blockSlowSpeed)
+                {
+                    SpeedDown();
+                }
+            }
+        }
+        transform.Translate(Vector3.up * speed);
+#endif
     }
 
     public void SpeedUp()
     {
+        blockFastSpeed = true;
         speed *= 2;
         Invoke("SpeedNormal", 2);
+        Invoke("DisableFastBlock", 5);
     }
 
     public void SpeedDown()
     {
+        blockSlowSpeed = true;
         speed /= 2;
         Invoke("SpeedNormal", 2);
+        Invoke("DisableSlowBlock", 5);
     }
 
     public void SpeedNormal()
     {
         speed = 0.04f;
+    }
+
+    public void DisableFastBlock()
+    {
+        blockFastSpeed = false;
+    }
+
+    public void DisableSlowBlock()
+    {
+        blockSlowSpeed = false;
     }
 
     public void LeftRun()
