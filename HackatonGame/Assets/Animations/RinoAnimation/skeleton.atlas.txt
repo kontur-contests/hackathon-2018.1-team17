@@ -1,0 +1,55 @@
+
+skeleton.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+rhino body
+  rotate: true
+  xy: 2, 16
+  size: 103, 144
+  orig: 103, 144
+  offset: 0, 0
+  index: -1
+rhino claw left 1
+  rotate: false
+  xy: 299, 84
+  size: 35, 35
+  orig: 35, 35
+  offset: 0, 0
+  index: -1
+rhino claw left 2
+  rotate: false
+  xy: 262, 83
+  size: 35, 36
+  orig: 35, 36
+  offset: 0, 0
+  index: -1
+rhino claw right 1
+  rotate: false
+  xy: 148, 17
+  size: 37, 36
+  orig: 37, 36
+  offset: 0, 0
+  index: -1
+rhino claw right 2
+  rotate: false
+  xy: 187, 17
+  size: 35, 36
+  orig: 35, 36
+  offset: 0, 0
+  index: -1
+rhino head
+  rotate: true
+  xy: 148, 55
+  size: 64, 112
+  orig: 64, 112
+  offset: 0, 0
+  index: -1
+rhino tail
+  rotate: true
+  xy: 2, 2
+  size: 12, 46
+  orig: 12, 46
+  offset: 0, 0
+  index: -1
