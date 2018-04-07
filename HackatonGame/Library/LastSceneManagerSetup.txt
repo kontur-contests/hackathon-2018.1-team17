@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/RhinoRacingVision.unity
+- path: Assets/InfiniteSavage.unity
   isLoaded: 1
   isActive: 1

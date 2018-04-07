@@ -43,7 +43,7 @@ public class HunterScript : MonoBehaviour {
         Vector3 delta = rhino.position - transform.position;
         delta.Normalize();
         float moveSpeed = speed * Time.deltaTime;
-        transform.position = transform.position + (delta * moveSpeed);
+        transform.Translate(delta.x*moveSpeed, delta.y*moveSpeed, 0);
     }
 
     bool IsInContact()

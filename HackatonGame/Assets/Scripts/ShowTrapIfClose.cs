@@ -20,9 +20,8 @@ public class ShowTrapIfClose : MonoBehaviour {
 
     public void CheckDistance()
     {        
-        float Dist = 1 - Vector3.Distance(this.transform.position, rhino.transform.position)/20;
-        C.a = Mathf.Max(Dist, 0);
-        this.GetComponent<SpriteRenderer>().color = C;
-        Debug.Log(Dist);
+        float Dist = 20/Vector3.Distance(this.transform.position, rhino.transform.position);
+        C.a = Mathf.Max(0, Mathf.Min(Dist, 1));
+        this.GetComponent<SpriteRenderer>().color = C;        
     }
 }
