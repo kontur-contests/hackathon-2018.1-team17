@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ShowTrapIfClose : MonoBehaviour {
 
-    public GameObject Player;
+    public Transform rhino;
     Color C;
 	// Use this for initialization
 	void Start () {
         C = GetComponent<SpriteRenderer>().color;
+        rhino = GameObject.Find("rhino").transform;
         //InvokeRepeating("CheckDistance", 2, 2);
     }
 	
@@ -19,12 +20,8 @@ public class ShowTrapIfClose : MonoBehaviour {
 
     public void CheckDistance()
     {        
-        float Dist = 1 - Vector3.Distance(this.transform.position, Player.transform.position)/20;
-        if (Dist < 0)
-        {
-            Dist = 0;
-        }
-        C.a = Dist;
+        float Dist = 1 - Vector3.Distance(this.transform.position, rhino.transform.position)/20;
+        C.a = Mathf.Max(Dist, 0);
         this.GetComponent<SpriteRenderer>().color = C;
         Debug.Log(Dist);
     }
