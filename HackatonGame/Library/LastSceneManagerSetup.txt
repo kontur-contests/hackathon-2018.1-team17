@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/InfiniteSavage.unity
+- path: Assets/Another.unity
   isLoaded: 1
   isActive: 1
