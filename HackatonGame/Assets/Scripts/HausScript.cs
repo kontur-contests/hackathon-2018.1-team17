@@ -11,7 +11,6 @@ public class HausScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
     void OnCollisionEnter2D(Collision2D theCollision)

@@ -56,7 +56,6 @@ public class UIController : MonoBehaviour {
 
     private void Update()
     {
-        Debug.Log(Time.deltaTime);
         timer += Time.deltaTime;
         test.text = "" + Mathf.Round(timer).ToString();
     }

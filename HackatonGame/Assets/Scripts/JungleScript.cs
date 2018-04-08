@@ -11,16 +11,16 @@ public class JungleScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    void OnEnter2D(Collision2D theCollision)
+	void Update ()
     {
-        Debug.Log("Junglee!");
+
+    }
+
+    void OnCollisionEnter2D(Collision2D theCollision)
+    {
         if (theCollision.gameObject.name.Contains("rhino"))
         {
-            Debug.Log("You win!");
+
         }
     }
 }
