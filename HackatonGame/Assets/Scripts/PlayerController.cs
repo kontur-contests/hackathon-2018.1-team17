@@ -64,13 +64,13 @@ public class PlayerController : MonoBehaviour {
 #if UNITY_ANDROID
         if (Input.acceleration.x > 0)
         {
-            transform.Translate(Input.acceleration.x/100, 0, 0);
+            transform.Translate(Input.acceleration.x/5, 0, 0);
             RightRun();
         }
 
         if (Input.acceleration.x < 0)
         {
-            transform.Translate(Input.acceleration.x/100, 0, 0);
+            transform.Translate(Input.acceleration.x/5, 0, 0);
             LeftRun();
         }
 

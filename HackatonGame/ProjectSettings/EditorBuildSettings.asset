@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Rino+train.unity
-    guid: f4cd47ae83fec1a489925d0bac312f41
-  - enabled: 1
     path: Assets/StartMenu.unity
     guid: 98f320e8dd4385541820049b07bef633
+  - enabled: 1
+    path: Assets/Finish+Junglee.unity
+    guid: e425ef1cd3a04e34293297a0d08ad1e1

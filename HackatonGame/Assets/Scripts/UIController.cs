@@ -18,7 +18,11 @@ public class UIController : MonoBehaviour {
 
     private void Start()
     {
+		#if UNITY_ANDROID
+		Screen.autorotateToPortrait = false;
+		Screen.autorotateToPortraitUpsideDown = false;
         Screen.orientation = ScreenOrientation.LandscapeLeft;
+		#endif
     }
     public void ToMainMenu()
     {
