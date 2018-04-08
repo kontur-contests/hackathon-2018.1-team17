@@ -177,4 +177,9 @@ public class PlayerController : MonoBehaviour {
     {
         _UIC.Lose();
     }
+
+    public void ShowWin()
+    {
+        _UIC.Win();
+    }
 }

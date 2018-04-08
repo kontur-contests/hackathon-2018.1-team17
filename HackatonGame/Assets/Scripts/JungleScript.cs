@@ -20,7 +20,8 @@ public class JungleScript : MonoBehaviour {
     {
         if (theCollision.gameObject.name.Contains("rhino"))
         {
-
+            theCollision.gameObject.GetComponentInParent<SpeedRinoParent>().enabled = false;
+            theCollision.gameObject.GetComponent<PlayerController>().ShowWin();
         }
     }
 }

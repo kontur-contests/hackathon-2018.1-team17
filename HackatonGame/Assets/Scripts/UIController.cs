@@ -14,8 +14,12 @@ public class UIController : MonoBehaviour {
     float timer;
     public Text test;
     public Text testLose;
+    public Text testWin;
 
-
+    private void Start()
+    {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+    }
     public void ToMainMenu()
     {
         Time.timeScale = 1;
@@ -26,6 +30,7 @@ public class UIController : MonoBehaviour {
     {
         Panell.SetActive(true);
         WinScreen.SetActive(true);
+        testWin.text = Mathf.Round(timer).ToString();
         WinScreen.GetComponent<Animator>().SetBool("NBool", true);
         Time.timeScale = 0;
         
