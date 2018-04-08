@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class TrainScript : MonoBehaviour {
 
-    private GameObject canvas;
-    // Use this for initialization
-    void Start ()
-    {
-        canvas = GameObject.Find("MyCan").gameObject;
-    }
+	// Use this for initialization
+	void Start () {
+		
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -23,12 +21,6 @@ public class TrainScript : MonoBehaviour {
             theCollision.gameObject.GetComponent<RhinoSpriteCatch>().ChangeIt();
             theCollision.gameObject.GetComponentInParent<SpeedRinoParent>().enabled = false;
             theCollision.gameObject.GetComponent<PlayerController>().ShowLose();
-        } else if (theCollision.gameObject.name.Contains("hunter"))
-        {
-            //Destroy(this.gameObject);
-            HunterScript hunterScript = theCollision.gameObject.GetComponent("HunterScript") as HunterScript;
-            hunterScript.Crash();
-            canvas.GetComponent<UIController>().AddScore();
         }
     }
 }

@@ -21,6 +21,7 @@ public class CatchRhino : MonoBehaviour {
         {
             theCollision.gameObject.GetComponent<RhinoSpriteCatch>().ChangeIt();
             theCollision.gameObject.GetComponentInParent<SpeedRinoParent>().enabled = false;
+			theCollision.gameObject.GetComponent<AudioSource> ().enabled = false;
             theCollision.gameObject.GetComponent<PlayerController>().ShowLose();
             Destroy(this.gameObject);
         }

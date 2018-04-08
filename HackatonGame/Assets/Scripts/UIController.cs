@@ -14,8 +14,16 @@ public class UIController : MonoBehaviour {
     float timer;
     public Text test;
     public Text testLose;
+    public Text testWin;
 
-
+    private void Start()
+    {
+		#if UNITY_ANDROID
+		Screen.autorotateToPortrait = false;
+		Screen.autorotateToPortraitUpsideDown = false;
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+		#endif
+    }
     public void ToMainMenu()
     {
         Time.timeScale = 1;
@@ -26,6 +34,7 @@ public class UIController : MonoBehaviour {
     {
         Panell.SetActive(true);
         WinScreen.SetActive(true);
+        testWin.text = Mathf.Round(timer).ToString();
         WinScreen.GetComponent<Animator>().SetBool("NBool", true);
         Time.timeScale = 0;
         

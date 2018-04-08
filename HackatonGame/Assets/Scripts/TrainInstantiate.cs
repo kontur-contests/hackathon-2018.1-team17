@@ -5,8 +5,8 @@ using UnityEngine;
 public class TrainInstantiate : MonoBehaviour {
 	
 	//	public GameObject trainTrigger;
-	public List <GameObject> trainList;
-	private Object trList;
+	public List <GameObject> trainList1;
+	private Object trList1;
 	public List <GameObject> trainList2;
 	private Object trList2;
 	// Use this for initialization
@@ -19,8 +19,8 @@ public class TrainInstantiate : MonoBehaviour {
 
 	}
 	void GoTreain (Vector3 target){
-		trList = trainList [Random.Range (0, 2)];
-		Instantiate (trList);
+		trList1 = trainList1 [Random.Range (0, 2)];
+		Instantiate (trList1);
 	}
 	void GoTreain2 (Vector3 target){
 		trList2 = trainList2 [Random.Range (0, 2)];
