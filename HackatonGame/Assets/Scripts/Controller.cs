@@ -18,16 +18,10 @@ public class Controller : MonoBehaviour {
 	}
 
     public bool TestModel(GameObject hunter)
-    {
-        i++;
-        if (i == 1)
-        {
+    { 
             GO = hunter;
             CheckTest();
             return true;
-        }
-        else
-            return false;
     }
 
     public void CheckTest()

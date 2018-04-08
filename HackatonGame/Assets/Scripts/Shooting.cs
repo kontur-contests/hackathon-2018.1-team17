@@ -23,7 +23,7 @@ public class Shooting : MonoBehaviour {
     {
         GameObject prefab;
         float x = (transform.position.x >= 0) ? -1 : 1;
-        float y = 0f;
+        float y = Random.Range(0, 1);
         prefab = Instantiate(FromGun, this.gameObject.transform.position - new Vector3(-0.5f*x, y - 0.5f, 0), this.transform.parent.rotation);
         GunWeb gunWeb = prefab.GetComponent<GunWeb>();
         gunWeb.targetVector = new Vector3(x, y, 0);

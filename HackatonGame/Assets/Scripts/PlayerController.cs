@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     Vector2 firstPressPos;
     Vector2 secondPressPos;
     Vector2 currentSwipe;
+    private GameObject Detroy;
     bool blockFastSpeed = false;
     bool blockSlowSpeed = false;
     public UIController _UIC;
@@ -20,7 +21,10 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+
 #if UNITY_EDITOR
+
+
         if (Input.GetKey(KeyCode.Z))
         {
             transform.Translate(new Vector3(1 * -rotatespeed, 0, 0));
@@ -113,13 +117,14 @@ public class PlayerController : MonoBehaviour {
         }
         transform.Translate(Vector3.up * speed);
 #endif
+
     }
 
     public void SpeedUp()
     {
         blockFastSpeed = true;
-        GetComponentInParent<SpeedRinoParent>().speed *= 2;
-        Invoke("SpeedNormal", 2);
+        GetComponentInParent<SpeedRinoParent>().speed *= 4;
+        Invoke("SpeedNormal", 1);
         Invoke("DisableFastBlock", 5);
     }
 
@@ -127,7 +132,7 @@ public class PlayerController : MonoBehaviour {
     {
         blockSlowSpeed = true;
         GetComponentInParent<SpeedRinoParent>().speed /= 2;
-        Invoke("SpeedNormal", 2);
+        Invoke("SpeedNormal", 1);
         Invoke("DisableSlowBlock", 5);
     }
 

@@ -23,6 +23,8 @@ public class MiniGameCrash : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (Input.GetMouseButtonDown(0))
+            EndStep();
         if (Input.touches.Length > 0 && checkDanger)
         {
             timer += Time.deltaTime;
@@ -112,9 +114,8 @@ public class MiniGameCrash : MonoBehaviour {
     {
         texst.text = "Well Played!";
         checkDanger = false;
-        HunterScript hunterScript = GO1.gameObject.GetComponent("HunterScript") as HunterScript;
-        hunterScript.Crash();
-        GameObject crashed = hunterScript.transform.Find("crashed").gameObject;
+        GO1.GetComponent<HunterScript>().Crash();
+        GameObject crashed = GO1.transform.Find("crashed").gameObject;
         crashed.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         GameObject Canvass = GameObject.Find("MyCan").gameObject;
         Canvass.GetComponent<UIController>().AddScore();

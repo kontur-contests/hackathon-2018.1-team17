@@ -16,9 +16,9 @@ public class HunterScript : MonoBehaviour {
     private bool canRun = true;
 
     public float speed = 2.5f;
-
+    int y = 0;
     public float distanceRequiredForContact = 3;
-
+    public bool stopshoot=false;
     private int huntStage = 0; //0 - догнать, 1 - поймать
 
     public float timeForCatchingRequired;
@@ -51,8 +51,9 @@ public class HunterScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (AttackContact())
+        if (AttackContact() && y == 0)
         {
+            y++;
             Debug.Log("FOOG");
             _C.TestModel(this.gameObject);
         }
@@ -112,6 +113,7 @@ public class HunterScript : MonoBehaviour {
 
     bool AttackContact()
     {
+        stopshoot = true;
         Vector3 pos = player.TransformVector(rhino.position + target);
         return Vector3.Distance(pos, this.transform.position) < distanceRequiredForContact+1;
     }
@@ -157,6 +159,7 @@ public class HunterScript : MonoBehaviour {
 
     public void Crash()
     {
+        y = 0;
         Debug.Log("Crash");
         GameObject crashed = transform.Find("crashed").gameObject;
         crashed.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
