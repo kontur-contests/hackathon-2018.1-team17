@@ -8,6 +8,7 @@ public class HunterScript : MonoBehaviour {
     public Transform player;
     public Transform catcher;
     private Transform center;
+    public Controller _C;
 
     private ShowHunter showHunter;
     private Shooting shooting;
@@ -28,6 +29,7 @@ public class HunterScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        _C = GameObject.Find("Controller").GetComponent<Controller>();
         player = GameObject.Find("player").transform;
         rhino = player.transform.Find("rhino").transform;
         catcher = this.transform.Find("catcher");
@@ -48,20 +50,31 @@ public class HunterScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       // transform.Rotate(0, 0, transform.rotation.z/2) ;
-       if(!canRun)
+
+        if (AttackContact())
+        {
+            Debug.Log("FOOG");
+            _C.TestModel(this.gameObject);
+        }
+        // transform.Rotate(0, 0, transform.rotation.z/2) ;
+        if (!canRun)
         {
             return;
         }
         Vector3 rhinoPosition = player.TransformVector(rhino.position);
         if (alternativeTarget.Equals(Vector3.zero))
-        {
+        {            
+            
             DecreaseDistancence(rhinoPosition);
             if(IsInContact())
             {
                 StartCatching();
             }
-        } else
+
+            
+        }
+        
+        else
         {
             if (Vector3.Distance(rhinoPosition, transform.position) > 2 * distanceRequiredForContact)
             {
@@ -95,6 +108,12 @@ public class HunterScript : MonoBehaviour {
     {
         Vector3 pos = player.TransformVector(rhino.position + target);
         return Vector3.Distance(pos, this.transform.position) < distanceRequiredForContact;
+    }
+
+    bool AttackContact()
+    {
+        Vector3 pos = player.TransformVector(rhino.position + target);
+        return Vector3.Distance(pos, this.transform.position) < distanceRequiredForContact+1;
     }
 
     void OnCollisionEnter2D(Collision2D theCollision)
