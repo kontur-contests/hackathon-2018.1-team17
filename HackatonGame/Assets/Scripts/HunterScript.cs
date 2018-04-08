@@ -9,6 +9,11 @@ public class HunterScript : MonoBehaviour {
     public Transform catcher;
     private Transform center;
 
+    private ShowHunter showHunter;
+    private Shooting shooting;
+
+    private bool canRun = true;
+
     public float speed = 2.5f;
 
     public float distanceRequiredForContact = 3;
@@ -21,12 +26,13 @@ public class HunterScript : MonoBehaviour {
     private Vector3 alternativeTarget = Vector3.zero;
 
 
-
     // Use this for initialization
     void Start () {
         player = GameObject.Find("player").transform;
         rhino = player.transform.Find("rhino").transform;
         catcher = this.transform.Find("catcher");
+        showHunter = GameObject.Find("HunterSpawnController").GetComponent("ShowHunter") as ShowHunter;
+        shooting = this.catcher.GetComponent("Shooting") as Shooting;
         Vector3 size = rhino.GetComponent<BoxCollider2D>().size;
         float x = Mathf.Sign(transform.position.x) * 4 * size.x;
         float y = 3f*size.y;
@@ -43,6 +49,10 @@ public class HunterScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
        // transform.Rotate(0, 0, transform.rotation.z/2) ;
+       if(!canRun)
+        {
+            return;
+        }
         Vector3 rhinoPosition = player.TransformVector(rhino.position);
         if (alternativeTarget.Equals(Vector3.zero))
         {
@@ -99,8 +109,8 @@ public class HunterScript : MonoBehaviour {
     void StartCatching()
     {
         alternativeTarget = new Vector3(5 * Mathf.Sign(transform.position.x), transform.position.y - 5, 0);
-        Shooting shooting = this.catcher.GetComponent("Shooting") as Shooting;
         shooting.Shoot();
+        showHunter.AddOne();
     }
 
     void Catching()
@@ -124,5 +134,15 @@ public class HunterScript : MonoBehaviour {
         RinoRun rhinoRun = this.rhino.GetComponent("RinoScript") as RinoRun;
         rhinoRun.Gotcha();
         huntStage = 2;
+    }
+
+    public void Crash()
+    {
+        Debug.Log("Crash");
+        GameObject crashed = transform.Find("crashed").gameObject;
+        crashed.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        canRun = false;
+        Destroy(this.gameObject, 5);
+        showHunter.RemoveOne();
     }
 }

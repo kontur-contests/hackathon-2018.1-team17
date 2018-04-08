@@ -30,29 +30,22 @@ public class ShowHunter : MonoBehaviour {
         while (true)
         {
             // Не создавать новых врагов, пока не уничтожены старые
-            if (currentNumberOfEnemies <= 0)
+            if (currentNumberOfEnemies < enemiesPerWave)
             {
-                float randDirection;
-                float randDistance;
-                // Создать 10 врагов в случайных местах за экраном
-                for (int i = 0; i < enemiesPerWave; i++)
-                {
-                    // Задаём случайные переменные для расстояния и направления
-                    randDistance = Random.Range(5, 10);
-                    randDirection = Random.Range(0, 360);
-                    // Используем переменные для задания координат появления врага
-                    int index = Random.Range(0, spawns.Count);
-                    Transform spawn = spawns[index];
-                    Vector3 pos = rhino.TransformVector(spawn.position);
-                    
-                    // Создаём врага на заданных координатах
-                    Instantiate(enemy, new Vector3(pos.x, pos.y, 5), this.transform.rotation);
-                    currentNumberOfEnemies++;
-                    yield return new WaitForSeconds(timeBetweenEnemies);
-                }
+                // Задаём случайные переменные для расстояния и направления
+                float randDistance = Random.Range(5, 10);
+                float randDirection = Random.Range(0, 360);
+                // Используем переменные для задания координат появления врага
+                int index = Random.Range(0, spawns.Count);
+                Transform spawn = spawns[index];
+                Vector3 pos = rhino.TransformVector(spawn.position);
+
+                // Создаём врага на заданных координатах
+                Instantiate(enemy, new Vector3(pos.x, pos.y, 5), this.transform.rotation);
+                currentNumberOfEnemies++;
             }
             // Ожидание до следующей проверки
-            yield return new WaitForSeconds(timeBeforeWaves);
+            yield return new WaitForSeconds(1);
         }
     }
 
@@ -60,4 +53,18 @@ public class ShowHunter : MonoBehaviour {
     void Update () {
 		
 	}
+
+    public void RemoveOne()
+    {
+        currentNumberOfEnemies--;
+    }
+
+    public void AddOne()
+    {
+        if(enemiesPerWave >= 3)
+        {
+            return;
+        }
+        enemiesPerWave++;
+    }
 }
