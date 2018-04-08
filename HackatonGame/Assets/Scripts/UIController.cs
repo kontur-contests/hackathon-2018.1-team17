@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour {
 
@@ -10,8 +11,12 @@ public class UIController : MonoBehaviour {
     public GameObject Pause;
     public GameObject Panell;
     public GameObject GO;
+    float timer;
+    public Text test;
+    public Text testLose;
 
-	public void ToMainMenu()
+
+    public void ToMainMenu()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
@@ -30,6 +35,7 @@ public class UIController : MonoBehaviour {
     {
         Panell.SetActive(true);
         LoseScreen.SetActive(true);
+        testLose.text = Mathf.Round(timer).ToString();
         LoseScreen.GetComponent<Animator>().SetBool("NBool",true);
         Time.timeScale = 0;
     }
@@ -46,5 +52,12 @@ public class UIController : MonoBehaviour {
         GO.GetComponent<SpeedRinoParent>().speed = 0.04f;
         Pause.SetActive(false);
         Time.timeScale = 1;
+    }
+
+    private void Update()
+    {
+        Debug.Log(Time.deltaTime);
+        timer += Time.deltaTime;
+        test.text = "" + Mathf.Round(timer).ToString();
     }
 }
