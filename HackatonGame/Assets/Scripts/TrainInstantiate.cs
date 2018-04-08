@@ -19,8 +19,8 @@ public class TrainInstantiate : MonoBehaviour {
 
 	}
 	void GoTreain (Vector3 target){
-		trList = trainList1 [Random.Range (0, 2)];
-		Instantiate (trList);
+		trList1 = trainList1 [Random.Range (0, 2)];
+		Instantiate (trList1);
 	}
 	void GoTreain2 (Vector3 target){
 		trList2 = trainList2 [Random.Range (0, 2)];
