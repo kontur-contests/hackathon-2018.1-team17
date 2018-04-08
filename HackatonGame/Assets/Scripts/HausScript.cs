@@ -22,6 +22,7 @@ public class HausScript : MonoBehaviour {
             HunterScript hunterScript = theCollision.gameObject.GetComponent("HunterScript") as HunterScript;
             hunterScript.Crash();
             GameObject crashed = transform.Find("crashed").gameObject;
+			crashed.GetComponent<AudioSource> ().enabled = true;
             crashed.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             GameObject Canvass = GameObject.Find("MyCan").gameObject;
             Canvass.GetComponent<UIController>().AddScore();
