@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     bool blockFastSpeed = false;
     bool blockSlowSpeed = false;
     public UIController _UIC;
+    public float radius = 4;
     // Use this for initialization
     void Start ()
     {
@@ -23,6 +24,10 @@ public class PlayerController : MonoBehaviour {
 #if UNITY_EDITOR
         if (Input.GetKey(KeyCode.Z))
         {
+            if (transform.position.x < -radius)
+            {
+                return;
+            }
             transform.Translate(new Vector3(1 * -rotatespeed, 0, 0));
         }
 
@@ -38,6 +43,10 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.X))
         {
+            if (transform.position.x > radius)
+            {
+                return;
+            }
             transform.Translate(new Vector3(1 * rotatespeed, 0, 0));
         }
 
@@ -64,12 +73,20 @@ public class PlayerController : MonoBehaviour {
 #if UNITY_ANDROID
         if (Input.acceleration.x > 0)
         {
+            if (transform.position.x > radius)
+            {
+                return;
+            }
             transform.Translate(Input.acceleration.x/100, 0, 0);
             RightRun();
         }
 
         if (Input.acceleration.x < 0)
         {
+            if (transform.position.x < -radius)
+            {
+                return;
+            }
             transform.Translate(Input.acceleration.x/100, 0, 0);
             LeftRun();
         }

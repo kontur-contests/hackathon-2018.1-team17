@@ -2263,6 +2263,7 @@ GameObject:
   - component: {fileID: 212700204618191902}
   - component: {fileID: 114982071016030428}
   - component: {fileID: 61576117268918490}
+  - component: {fileID: 50251345176627458}
   m_Layer: 0
   m_Name: Haus (6)
   m_TagString: Untagged
@@ -4329,6 +4330,26 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1690655813199326}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!50 &50251345176627458
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1960603477386326}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 10000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &61081804089012234
 BoxCollider2D:
   m_ObjectHideFlags: 1
