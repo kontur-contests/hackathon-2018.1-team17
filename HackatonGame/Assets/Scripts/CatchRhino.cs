@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CatchRhino : MonoBehaviour {
 
+    public UIController _UC;
 	// Use this for initialization
 	void Start () {
 		
@@ -18,6 +19,9 @@ public class CatchRhino : MonoBehaviour {
     {
         if (theCollision.gameObject.name.Contains("rhino"))
         {
+            theCollision.gameObject.GetComponent<RhinoSpriteCatch>().ChangeIt();
+            theCollision.gameObject.GetComponentInParent<SpeedRinoParent>().enabled = false;
+            theCollision.gameObject.GetComponent<PlayerController>().ShowLose();
             Destroy(this.gameObject);
         }
     }

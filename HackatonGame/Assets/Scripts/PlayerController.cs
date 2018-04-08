@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     Vector2 currentSwipe;
     bool blockFastSpeed = false;
     bool blockSlowSpeed = false;
+    public UIController _UIC;
     // Use this for initialization
     void Start ()
     {
@@ -63,13 +64,13 @@ public class PlayerController : MonoBehaviour {
 #if UNITY_ANDROID
         if (Input.acceleration.x > 0)
         {
-            transform.Translate(Input.acceleration.x, 0, 0);
+            transform.Translate(Input.acceleration.x/100, 0, 0);
             RightRun();
         }
 
         if (Input.acceleration.x < 0)
         {
-            transform.Translate(Input.acceleration.x, 0, 0);
+            transform.Translate(Input.acceleration.x/100, 0, 0);
             LeftRun();
         }
 
@@ -170,5 +171,10 @@ public class PlayerController : MonoBehaviour {
     public void RightRun()
     {
         GetComponent<Animator>().SetBool("Right", true);
+    }
+
+    public void ShowLose()
+    {
+        _UIC.Lose();
     }
 }
