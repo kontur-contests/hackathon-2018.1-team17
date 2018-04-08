@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     bool blockFastSpeed = false;
     bool blockSlowSpeed = false;
     public UIController _UIC;
+	public float radius = 8;
     // Use this for initialization
     void Start ()
     {

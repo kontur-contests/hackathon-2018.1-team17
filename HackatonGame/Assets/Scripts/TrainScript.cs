@@ -6,10 +6,6 @@ public class TrainScript : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
-		
-	}
-	
 
     private GameObject canvas;
     // Use this for initialization
