@@ -22,10 +22,10 @@ public class Shooting : MonoBehaviour {
     public void Shoot()
     {
         GameObject prefab;
-        prefab = Instantiate(FromGun, this.gameObject.transform.position, this.transform.parent.rotation);
-        GunWeb gunWeb = prefab.GetComponent<GunWeb>();
         float x = (transform.position.x >= 0) ? -1 : 1;
         float y = 0f;
+        prefab = Instantiate(FromGun, this.gameObject.transform.position - new Vector3(-0.5f*x, y - 0.5f, 0), this.transform.parent.rotation);
+        GunWeb gunWeb = prefab.GetComponent<GunWeb>();
         gunWeb.targetVector = new Vector3(x, y, 0);
     }
 }

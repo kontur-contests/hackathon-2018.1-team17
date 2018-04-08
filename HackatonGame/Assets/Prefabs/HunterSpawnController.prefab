@@ -51,10 +51,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c13cb15c38ecae449a5bc6148ab663b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 4467734860934954, guid: c3ec49513bee66146b1fe87c39c3d252, type: 2}
+  enemy: {fileID: 4549818716433608, guid: c3ec49513bee66146b1fe87c39c3d252, type: 2}
   world: {fileID: 0}
   rhino: {fileID: 0}
+  spawns:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   timeBeforeSpawning: 1.5
   timeBetweenEnemies: 0.25
   timeBeforeWaves: 2
-  enemiesPerWave: 3
+  enemiesPerWave: 1
