@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Finish+Junglee.unity
+- path: Assets/Final+Sync.unity
   isLoaded: 1
   isActive: 1
