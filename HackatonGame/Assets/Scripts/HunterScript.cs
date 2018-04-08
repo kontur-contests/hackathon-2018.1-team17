@@ -59,7 +59,7 @@ public class HunterScript : MonoBehaviour {
             DecreaseDistancence(rhinoPosition);
             if(IsInContact())
             {
-                //StartCatching();
+                StartCatching();
             }
         } else
         {

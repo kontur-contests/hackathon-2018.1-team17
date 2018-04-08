@@ -26,7 +26,7 @@ public class UIController : MonoBehaviour {
     {
         Panell.SetActive(true);
         WinScreen.SetActive(true);
-        WinScreen.GetComponent<Animator>().SetTrigger("Show");
+        WinScreen.GetComponent<Animator>().SetBool("NBool", true);
         Time.timeScale = 0;
         
     }
