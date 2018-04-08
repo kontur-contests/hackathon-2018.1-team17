@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HausScript : MonoBehaviour {
 
@@ -23,6 +24,8 @@ public class HausScript : MonoBehaviour {
             hunterScript.Crash();
             GameObject crashed = transform.Find("crashed").gameObject;
             crashed.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            GameObject Canvass = GameObject.Find("MyCan").gameObject;
+            Canvass.GetComponent<UIController>().AddScore();
         }
     }
 }

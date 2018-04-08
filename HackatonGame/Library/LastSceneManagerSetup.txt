@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Finish.unity
+- path: Assets/Rino+train.unity
   isLoaded: 1
   isActive: 1

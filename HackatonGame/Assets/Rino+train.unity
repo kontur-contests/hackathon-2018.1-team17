@@ -537,6 +537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   rotatespeed: 0.04
+  _UIC: {fileID: 0}
 --- !u!65 &1467469408
 BoxCollider:
   m_ObjectHideFlags: 0

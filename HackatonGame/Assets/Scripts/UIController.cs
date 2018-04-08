@@ -31,6 +31,11 @@ public class UIController : MonoBehaviour {
         
     }
 
+    public void AddScore()
+    {
+        timer += 25;
+    }
+
     public void Lose()
     {
         Panell.SetActive(true);

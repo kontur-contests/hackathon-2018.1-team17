@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TrainTrigger
   - TrainTrigger2
+  - CanvasText
   layers:
   - Default
   - TransparentFX

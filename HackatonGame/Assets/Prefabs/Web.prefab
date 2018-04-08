@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetVector: {x: 0, y: 0, z: 0}
+  timeToDestroy: 5
 --- !u!114 &114138780885349574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,3 +186,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdbc30b0b4d264649a392b8e7fdb514e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _UC: {fileID: 0}
