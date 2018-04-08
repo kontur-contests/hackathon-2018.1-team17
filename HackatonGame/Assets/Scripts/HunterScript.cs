@@ -59,7 +59,7 @@ public class HunterScript : MonoBehaviour {
             DecreaseDistancence(rhinoPosition);
             if(IsInContact())
             {
-                StartCatching();
+                //StartCatching();
             }
         } else
         {
@@ -102,7 +102,7 @@ public class HunterScript : MonoBehaviour {
         //Проверяем коллизию с объектом типа «rhino»
         if (theCollision.gameObject.name.Contains("rhino"))
         {
-            StartCatching();
+            //StartCatching();
         }
     }
 
