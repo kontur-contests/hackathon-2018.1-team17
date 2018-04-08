@@ -5,13 +5,20 @@ using UnityEngine.UI;
 
 public class HausScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    private GameObject crashed;
+    private GameObject canvas;
+
+    // Use this for initialization
+    void Start()
+    {
+        crashed = transform.Find("crashed").gameObject;
+        canvas = GameObject.Find("MyCan").gameObject;
+    }
+
+    // Update is called once per frame
+    void Update () {
+
 	}
 
     void OnCollisionEnter2D(Collision2D theCollision)
@@ -24,6 +31,13 @@ public class HausScript : MonoBehaviour {
             GameObject crashed = transform.Find("crashed").gameObject;
 			crashed.GetComponent<AudioSource> ().enabled = true;
             crashed.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+
+            canvas.GetComponent<UIController>().AddScore();
+        }
+        else if (theCollision.gameObject.name.Contains("rhino"))
+        {
+            crashed.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            canvas.GetComponent<UIController>().AddScore();
             GameObject Canvass = GameObject.Find("MyCan").gameObject;
             Canvass.GetComponent<UIController>().AddScore();
         }

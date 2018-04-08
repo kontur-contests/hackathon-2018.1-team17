@@ -64,12 +64,24 @@ public class PlayerController : MonoBehaviour {
 #if UNITY_ANDROID
         if (Input.acceleration.x > 0)
         {
+
+            if (transform.position.x > radius)
+            {
+                return;
+            }
+
             transform.Translate(Input.acceleration.x/5, 0, 0);
             RightRun();
         }
 
         if (Input.acceleration.x < 0)
         {
+
+            if (transform.position.x < -radius)
+            {
+                return;
+            }
+
             transform.Translate(Input.acceleration.x/5, 0, 0);
             LeftRun();
         }
