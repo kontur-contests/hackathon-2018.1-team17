@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour {
             {
                 return;
             }
-            transform.Translate(Input.acceleration.x/100, 0, 0);
+            transform.Translate(Input.acceleration.x/5, 0, 0);
             RightRun();
         }
 
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour {
             {
                 return;
             }
-            transform.Translate(Input.acceleration.x/100, 0, 0);
+            transform.Translate(Input.acceleration.x/5, 0, 0);
             LeftRun();
         }
 

@@ -9,29 +9,34 @@ public class HausScript : MonoBehaviour {
     private GameObject canvas;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         crashed = transform.Find("crashed").gameObject;
         canvas = GameObject.Find("MyCan").gameObject;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 	}
 
     void OnCollisionEnter2D(Collision2D theCollision)
     {
-        Debug.Log(theCollision.gameObject.name);
         if (theCollision.gameObject.name.Contains("hunter"))
         {
             //Destroy(this.gameObject);
             HunterScript hunterScript = theCollision.gameObject.GetComponent("HunterScript") as HunterScript;
             hunterScript.Crash();
+            GameObject crashed = transform.Find("crashed").gameObject;
+			crashed.GetComponent<AudioSource> ().enabled = true;
             crashed.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             canvas.GetComponent<UIController>().AddScore();
-        } else if (theCollision.gameObject.name.Contains("rhino"))
+        }
+        else if (theCollision.gameObject.name.Contains("rhino"))
         {
             crashed.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             canvas.GetComponent<UIController>().AddScore();
+            GameObject Canvass = GameObject.Find("MyCan").gameObject;
+            Canvass.GetComponent<UIController>().AddScore();
         }
     }
 }
