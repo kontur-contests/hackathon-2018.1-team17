@@ -5,6 +5,7 @@ using UnityEngine;
 public class CatchRhino : MonoBehaviour {
 
     public UIController _UC;
+    private float lifetime = 0;
 	// Use this for initialization
 	void Start () {
 		
@@ -12,7 +13,7 @@ public class CatchRhino : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        lifetime += Time.deltaTime;
 	}
 
     void OnCollisionEnter2D(Collision2D theCollision)
@@ -23,6 +24,9 @@ public class CatchRhino : MonoBehaviour {
             theCollision.gameObject.GetComponentInParent<SpeedRinoParent>().enabled = false;
 			theCollision.gameObject.GetComponent<AudioSource> ().enabled = false;
             theCollision.gameObject.GetComponent<PlayerController>().ShowLose();
+            Destroy(this.gameObject);
+        } else if(lifetime > 100)
+        {
             Destroy(this.gameObject);
         }
     }

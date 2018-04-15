@@ -24,4 +24,9 @@ public class RinoRun : MonoBehaviour {
     {
         canRun = false;
     }
+
+    public bool isCanRun()
+    {
+        return canRun;
+    }
 }

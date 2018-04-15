@@ -36,6 +36,11 @@ public class HausScript : MonoBehaviour {
         }
         else if (theCollision.gameObject.name.Contains("rhino"))
         {
+            RinoRun rinoRun = theCollision.gameObject.GetComponent<RinoRun>();
+            if (!rinoRun.isCanRun())
+            {
+                return;
+            }
             crashed.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             canvas.GetComponent<UIController>().AddScore();
             GameObject Canvass = GameObject.Find("MyCan").gameObject;
